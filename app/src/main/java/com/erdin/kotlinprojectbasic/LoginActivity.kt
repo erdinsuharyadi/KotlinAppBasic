@@ -19,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.et_email)
         val etPassword = findViewById<EditText>(R.id.et_password)
 
-        bundles = intent.extras!!
+        val extras = intent.extras
+        bundles = if (extras != null) extras else throw KotlinNullPointerException()
         val datEmail = bundles?.getString("email")
         val datPassword = bundles?.getString("password")
 

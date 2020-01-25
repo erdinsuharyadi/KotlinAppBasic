@@ -23,12 +23,12 @@ class RegisterActivity : AppCompatActivity() {
 
         val intent = Intent(this, LoginActivity::class.java)
 
-        etRegister.setOnClickListener {
             val bundleRegister = Bundle()
             bundleRegister.putString("fullname", etFullname.text.toString())
             bundleRegister.putString("email", etEmail.text.toString())
             bundleRegister.putString("username", etUsername.text.toString())
             bundleRegister.putString("password", etPassword.text.toString())
+        etRegister.setOnClickListener {
 
             intent.putExtras(bundleRegister)
             startActivity(intent)
@@ -36,6 +36,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         tvAlreadyAcc.setOnClickListener {
+            intent.putExtras(bundleRegister)
             startActivity(intent)
             finish()
         }
